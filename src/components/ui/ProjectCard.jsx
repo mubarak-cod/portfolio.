@@ -1,5 +1,5 @@
-import React, { useMemo, useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import React, { memo, useMemo, useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { SiGithub } from "react-icons/si";
 import {
     ArrowUpRight,
@@ -40,21 +40,6 @@ const ProjectCard = ({ project, index, onOpen }) => {
     const cardRef = useRef(null);
     const shouldReduceMotion = useReducedMotion();
     const theme = useMemo(() => themeSets[index % themeSets.length], [index]);
-    const { scrollYProgress } = useScroll({
-        target: cardRef,
-        offset: ["start end", "end start"],
-    });
-
-    const previewY = useTransform(
-        scrollYProgress,
-        [0, 0.5, 1],
-        shouldReduceMotion ? [0, 0, 0] : [24, 0, -24]
-    );
-    const previewScale = useTransform(
-        scrollYProgress,
-        [0, 0.5, 1],
-        shouldReduceMotion ? [1, 1, 1] : [1.02, 1, 0.98]
-    );
 
     return (
         <motion.article
@@ -75,7 +60,11 @@ const ProjectCard = ({ project, index, onOpen }) => {
             }
             whileTap={shouldReduceMotion ? undefined : { scale: 0.99 }}
             className="group relative h-full"
-            style={{ transformStyle: "preserve-3d" }}
+            style={{
+                transformStyle: "preserve-3d",
+                contentVisibility: "auto",
+                containIntrinsicSize: "720px",
+            }}
         >
             <div
                 className={`absolute inset-0 rounded-[2rem] bg-gradient-to-br ${theme.glow} blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
@@ -102,7 +91,7 @@ const ProjectCard = ({ project, index, onOpen }) => {
 
                     <motion.div
                         className="relative grid gap-5 px-4 py-4 sm:px-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch lg:gap-6 lg:px-6 lg:py-6"
-                        style={{ y: previewY, scale: previewScale, transformStyle: "preserve-3d" }}
+                        style={{ transformStyle: "preserve-3d" }}
                     >
                         <div className="relative flex min-h-[250px] flex-col justify-between overflow-hidden rounded-[1.8rem] border border-white/10 bg-gradient-to-br from-white/[0.08] via-white/[0.04] to-transparent p-5 sm:p-6">
                             <div className={`absolute inset-0 bg-gradient-to-br ${theme.wash} opacity-60`} />
@@ -266,4 +255,4 @@ const ProjectCard = ({ project, index, onOpen }) => {
     );
 };
 
-export default ProjectCard;
+export default memo(ProjectCard);
