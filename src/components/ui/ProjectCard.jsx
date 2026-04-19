@@ -62,8 +62,6 @@ const ProjectCard = ({ project, index, onOpen }) => {
             className="group relative h-full"
             style={{
                 transformStyle: "preserve-3d",
-                contentVisibility: "auto",
-                containIntrinsicSize: "720px",
             }}
         >
             <div
