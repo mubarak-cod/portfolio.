@@ -3,6 +3,7 @@ import Hero from "./components/sections/Hero"
 import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
 import ProjectsSection from "./components/sections/ProjectsSection";
+import Testimonials from "./components/sections/Testimonials";
 import ContactSection from "./components/sections/ContactSection";
 import Footer from "./components/Layout/Footer";
 // import TechExpertise from "./components/sections/TechExpertise";
@@ -17,6 +18,7 @@ function App() {
       {/* <TechExpertise /> */}
       <Skills />
       <ProjectsSection />
+      <Testimonials />
       <ContactSection />
       <Footer />
     </main>
