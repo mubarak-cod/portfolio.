@@ -2,15 +2,6 @@ import React, { memo, useMemo } from "react";
 import { useReducedMotion } from "framer-motion";
 import { Quote, Star, BadgeCheck, Globe } from "lucide-react";
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-  },
-};
-
 const themeSets = [
   {
     glow: "from-emerald-400/20 via-emerald-400/6 to-transparent",
@@ -43,10 +34,8 @@ const TestimonialCard = ({ testimonial, index }) => {
   }, [testimonial.avatarSeed, testimonial.name]);
 
   return (
-    <motion.article
-      variants={cardVariants}
-      whileHover={shouldReduceMotion ? undefined : { y: -8, scale: 1.01 }}
-      className="group relative h-full"
+    <article
+      className={`group relative h-full transition-transform duration-500 ${shouldReduceMotion ? "" : "hover:-translate-y-2"}`}
     >
       <div className={`absolute inset-0 rounded-[2rem] bg-gradient-to-br ${theme.glow} opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100`} />
 
@@ -114,7 +103,7 @@ const TestimonialCard = ({ testimonial, index }) => {
           </div>
         </div>
       </div>
-    </motion.article>
+    </article>
   );
 };
 

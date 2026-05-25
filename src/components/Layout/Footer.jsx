@@ -1,18 +1,12 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Mail, ChevronUp } from "lucide-react";
-import { FaLinkedinIn } from "react-icons/fa6";
-import { SiGithub, SiInstagram } from "react-icons/si";
 import { Nav_LINKS, PERSONAL_INFO } from "../../utils/contestants";
+import { SOCIAL_LINKS } from "../../utils/contactLinks";
 import { scrollToSection } from "../../hooks/useScrollSpy";
 import FadeIn from "../animations/FadeIn";
 
-const socialLinks = [
-    { label: "GitHub", href: "https://github.com/", icon: SiGithub },
-    { label: "LinkedIn", href: "https://www.linkedin.com/", icon: FaLinkedinIn },
-    { label: "Instagram", href: "https://www.instagram.com/", icon: SiInstagram },
-    { label: "Email", href: "mailto:hello@yourportfolio.dev", icon: Mail },
-];
+const footerLinks = SOCIAL_LINKS;
 
 const footerVariants = {
     hidden: { opacity: 0, y: 24 },
@@ -83,15 +77,15 @@ const Footer = () => {
                     <div>
                         <p className="text-xs uppercase tracking-[0.3em] text-white/40">Connect</p>
                         <div className="mt-5 flex flex-wrap gap-3">
-                            {socialLinks.map((social) => {
+                            {footerLinks.map((social) => {
                                 const Icon = social.icon;
 
                                 return (
                                     <a
                                         key={social.label}
                                         href={social.href}
-                                        target="_blank"
-                                        rel="noreferrer"
+                                        target={social.external ? "_blank" : undefined}
+                                        rel={social.external ? "noopener noreferrer" : undefined}
                                         className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300/30 hover:text-white hover:shadow-[0_0_24px_rgba(110,231,183,0.12)]"
                                     >
                                         <Icon className="h-4 w-4" />

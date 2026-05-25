@@ -77,7 +77,7 @@ const ProjectDetailsModal = ({ project, onClose }) => {
                   <a
                     href={project.demoUrl}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-semibold text-black transition-transform duration-300 hover:-translate-y-0.5"
                   >
                     Open live site
@@ -87,7 +87,7 @@ const ProjectDetailsModal = ({ project, onClose }) => {
                     <a
                       href={project.githubUrl}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/75 transition-colors duration-300 hover:bg-white/10 hover:text-white"
                     >
                       <SiGithub className="h-4 w-4" />

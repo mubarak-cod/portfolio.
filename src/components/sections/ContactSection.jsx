@@ -1,30 +1,12 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Mail, MapPin, Phone, Sparkles } from "lucide-react";
-import { FaLinkedinIn } from "react-icons/fa6";
-import { SiGithub, SiInstagram } from "react-icons/si";
 import { PERSONAL_INFO } from "../../utils/contestants";
+import { CONTACT_METHODS, SOCIAL_LINKS } from "../../utils/contactLinks";
 import ContactForm from "./ContactForm";
 
-const socialLinks = [
-  { label: "GitHub", href: "https://github.com/", icon: SiGithub },
-  { label: "LinkedIn", href: "https://www.linkedin.com/", icon: FaLinkedinIn },
-  { label: "Instagram", href: "https://www.instagram.com/", icon: SiInstagram },
-];
-
 const contactRows = [
-  {
-    label: "Email",
-    value: "hello@yourportfolio.dev",
-    href: "mailto:hello@yourportfolio.dev",
-    icon: Mail,
-  },
-  {
-    label: "Phone",
-    value: "+234 800 000 0000",
-    href: "tel:+2348000000000",
-    icon: Phone,
-  },
+  ...CONTACT_METHODS,
   {
     label: "Location",
     value: PERSONAL_INFO.location,
@@ -132,7 +114,13 @@ const ContactSection = () => {
                   );
 
                   return contact.href ? (
-                    <a key={contact.label} href={contact.href} className="block">
+                    <a
+                      key={contact.label}
+                      href={contact.href}
+                      target={contact.external ? "_blank" : undefined}
+                      rel={contact.external ? "noopener noreferrer" : undefined}
+                      className="block"
+                    >
                       {card}
                     </a>
                   ) : (
@@ -144,15 +132,15 @@ const ContactSection = () => {
               <motion.div variants={itemVariants} className="rounded-[1.5rem] border border-white/10 bg-black/25 p-4">
                 <p className="text-xs uppercase tracking-[0.28em] text-white/40">Find me online</p>
                 <div className="mt-4 flex flex-wrap gap-3">
-                  {socialLinks.map((social) => {
+                  {SOCIAL_LINKS.filter((social) => social.label !== "Email").map((social) => {
                     const Icon = social.icon;
 
                     return (
                       <a
                         key={social.label}
                         href={social.href}
-                        target="_blank"
-                        rel="noreferrer"
+                        target={social.external ? "_blank" : undefined}
+                        rel={social.external ? "noopener noreferrer" : undefined}
                         className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300/30 hover:text-white"
                       >
                         <Icon className="h-4 w-4" />
@@ -161,6 +149,15 @@ const ContactSection = () => {
                     );
                   })}
                 </div>
+                <a
+                  href={CONTACT_METHODS[2].href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm text-emerald-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300/40 hover:bg-emerald-300/15"
+                >
+                  <CONTACT_METHODS[2].icon className="h-4 w-4" />
+                  Chat on WhatsApp
+                </a>
               </motion.div>
             </div>
           </motion.aside>

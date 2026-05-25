@@ -3,6 +3,7 @@ import { ArrowRight, Download, Sparkles, Star } from "lucide-react";
 // import { SiReact, SiNextdotjs, SiTailwindcss, SiNodedotjs, SiMongodb } from 'react-icons/si';
 import { Code, Server, Database } from "lucide-react";
 import { PERSONAL_INFO, STATS } from "../../utils/contestants";
+import { SOCIAL_LINKS } from "../../utils/contactLinks";
 import { scrollToSection } from "../../hooks/useScrollSpy";
 import FadeIn from "../animations/FadeIn";
 import RadialGradientBackground from "../Backgrounds/RadialGradientBackground";
@@ -27,7 +28,7 @@ const Hero = () => {
 
             <FadeIn delay={100}>
               <p className="mt-6 max-w-xl text-sm font-medium uppercase tracking-[0.3em] text-primary/90">
-                {PERSONAL_INFO.title} | Based in {PERSONAL_INFO.location}
+                {PERSONAL_INFO.title} | Frontend Engineer & Creative Developer
               </p>
             </FadeIn>
 
@@ -41,9 +42,9 @@ const Hero = () => {
             <FadeIn delay={260}>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/70 sm:text-lg">
                 {PERSONAL_INFO.name} creates fast, responsive interfaces with
-                React, Next.js, Tailwind CSS, and Node.js. The focus is simple:
-                clear product thinking, smooth interaction design, and code that
-                scales.
+                modern frontend tools and thoughtful product design. The focus
+                is simple: clear product thinking, smooth interaction design,
+                and code that scales.
               </p>
             </FadeIn>
 
@@ -60,6 +61,27 @@ const Hero = () => {
                   <Download className="h-4 w-4" />
                   Download Resume
                 </button>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={390}>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                {SOCIAL_LINKS.map((social) => {
+                  const Icon = social.icon;
+
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target={social.external ? "_blank" : undefined}
+                      rel={social.external ? "noopener noreferrer" : undefined}
+                      aria-label={social.label}
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  );
+                })}
               </div>
             </FadeIn>
 
