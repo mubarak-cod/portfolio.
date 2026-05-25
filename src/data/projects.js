@@ -39,7 +39,7 @@ export const projects = [
     image: "/projects/zellie.png",
     category: "Learning Platform",
     technologies: ["React", "TypeScript", "Tailwind CSS"],
-    liveUrl: "https://app.frenchwithzelie.io",
+    liveUrl: "https://app.frenchwithzelie.io/onboarding",
     metrics: {
       lessons: "Interactive",
       experience: "Immersive",

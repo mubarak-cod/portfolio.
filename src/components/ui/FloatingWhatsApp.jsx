@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { MessageCircleMore, Sparkles } from "lucide-react";
 import { CONTACT_LINKS } from "../../utils/contactLinks";
 
 const FloatingWhatsApp = () => {
   const shouldReduceMotion = useReducedMotion();
+  const [isMounted, setIsMounted] = useState(false);
 
-  return (
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
+  return createPortal(
     <motion.a
       href={CONTACT_LINKS.whatsapp}
       target="_blank"
@@ -17,7 +27,7 @@ const FloatingWhatsApp = () => {
       transition={shouldReduceMotion ? { duration: 0 } : { duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
       whileHover={shouldReduceMotion ? undefined : { scale: 1.04, y: -2 }}
       whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
-      className="group fixed bottom-5 right-5 z-[1100] inline-flex items-center gap-3 rounded-full border border-emerald-300/20 bg-black/55 px-4 py-3 text-sm font-medium text-white shadow-[0_18px_55px_rgba(0,0,0,0.45)] backdrop-blur-2xl transition-colors duration-300 hover:border-emerald-300/40 hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:bottom-6 sm:right-6 sm:px-5"
+      className="group fixed bottom-5 right-5 z-[2147483647] inline-flex items-center gap-3 rounded-full border border-emerald-300/25 bg-black/70 px-4 py-3 text-sm font-medium text-white shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition-colors duration-300 hover:-translate-y-0.5 hover:border-emerald-300/40 hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:bottom-6 sm:right-6 sm:px-5"
     >
       <span className="absolute inset-0 rounded-full bg-emerald-400/15 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
       <span className="absolute inset-0 rounded-full ring-1 ring-inset ring-emerald-300/15" />
@@ -33,7 +43,8 @@ const FloatingWhatsApp = () => {
         </span>
         <span className="mt-0.5 text-sm text-white">Chat on WhatsApp</span>
       </span>
-    </motion.a>
+    </motion.a>,
+    document.body
   );
 };
 
