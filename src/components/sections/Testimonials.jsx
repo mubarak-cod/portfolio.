@@ -126,14 +126,14 @@ const Testimonials = () => {
       id="testimonials"
       className="relative isolate overflow-hidden border-t border-white/5 bg-[#050505] py-24 sm:py-28"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.12),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.08),transparent_24%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.14),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.1),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent)]" />
       <div className="pointer-events-none absolute -left-24 top-10 h-64 w-64 rounded-full bg-emerald-400/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <FadeIn delay={80}>
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/15 bg-emerald-400/8 px-4 py-2 text-xs font-medium uppercase tracking-[0.32em] text-emerald-200 backdrop-blur-xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/15 bg-white/6 px-4 py-2 text-xs font-medium uppercase tracking-[0.32em] text-emerald-200 backdrop-blur-2xl shadow-[0_18px_55px_rgba(0,0,0,0.25)]">
               <Sparkles className="h-3.5 w-3.5" />
               Client Feedback
             </div>
@@ -153,8 +153,8 @@ const Testimonials = () => {
         </div>
 
         <div className="relative mt-14">
-          <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-            <div className="text-sm text-white/45">
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-4 rounded-[1.75rem] border border-white/8 bg-white/4 px-5 py-4 backdrop-blur-2xl">
+            <div className="text-sm text-white/50">
               Smooth autoplay, swipe gestures, and premium motion built for trust.
             </div>
 
@@ -163,7 +163,7 @@ const Testimonials = () => {
                 type="button"
                 onClick={goPrev}
                 aria-label="Previous testimonial"
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/7 text-white shadow-[0_16px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/40 hover:bg-emerald-400/10 hover:text-white hover:shadow-[0_18px_45px_rgba(16,185,129,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/8 text-white shadow-[0_16px_40px_rgba(0,0,0,0.35)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400/40 hover:bg-emerald-400/10 hover:text-white hover:shadow-[0_18px_45px_rgba(16,185,129,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
@@ -171,7 +171,7 @@ const Testimonials = () => {
                 type="button"
                 onClick={goNext}
                 aria-label="Next testimonial"
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/7 text-white shadow-[0_16px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/40 hover:bg-emerald-400/10 hover:text-white hover:shadow-[0_18px_45px_rgba(16,185,129,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/8 text-white shadow-[0_16px_40px_rgba(0,0,0,0.35)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400/40 hover:bg-emerald-400/10 hover:text-white hover:shadow-[0_18px_45px_rgba(16,185,129,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -180,7 +180,7 @@ const Testimonials = () => {
 
           <div
             ref={viewportRef}
-            className="overflow-hidden rounded-[2.25rem]"
+            className="overflow-hidden rounded-[2.25rem] border border-white/8 bg-white/4 p-1 shadow-[0_30px_100px_rgba(0,0,0,0.32)] backdrop-blur-2xl"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onFocusCapture={() => setIsPaused(true)}
@@ -209,7 +209,7 @@ const Testimonials = () => {
               {loopedTestimonials.map((testimonial, index) => (
                 <div
                   key={`${testimonial.id}-${index}`}
-                  className="shrink-0 px-3"
+                  className="shrink-0 px-2 sm:px-3 py-2"
                   style={{ width: `${100 / slidesPerView}%` }}
                 >
                   <TestimonialCard testimonial={testimonial} index={index} />

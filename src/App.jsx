@@ -6,6 +6,7 @@ import ProjectsSection from "./components/sections/ProjectsSection";
 import Testimonials from "./components/sections/Testimonials";
 import ContactSection from "./components/sections/ContactSection";
 import Footer from "./components/Layout/Footer";
+import FloatingWhatsApp from "./components/ui/FloatingWhatsApp";
 // import TechExpertise from "./components/sections/TechExpertise";
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <ContactSection />
       <Footer />
     </main>
+    <FloatingWhatsApp />
    </div>
   )
 }

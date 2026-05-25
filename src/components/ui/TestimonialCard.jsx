@@ -1,6 +1,6 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useState } from "react";
 import { useReducedMotion } from "framer-motion";
-import { Quote, Star, BadgeCheck, Globe } from "lucide-react";
+import { Quote, Star, BadgeCheck, Globe, UserRound } from "lucide-react";
 
 const themeSets = [
   {
@@ -28,10 +28,19 @@ const themeSets = [
 const TestimonialCard = ({ testimonial, index }) => {
   const shouldReduceMotion = useReducedMotion();
   const theme = useMemo(() => themeSets[index % themeSets.length], [index]);
+  const [avatarFailed, setAvatarFailed] = useState(false);
   const avatarUrl = useMemo(() => {
     const seed = encodeURIComponent(testimonial.avatarSeed || testimonial.name);
-    return `https://api.dicebear.com/7.x/initials/svg?seed=${seed}&backgroundColor=0f172a,111827,0b1220&textColor=ffffff&radius=18&fontWeight=700&fontSize=48`;
+    return `https://api.dicebear.com/7.x/notionists/svg?seed=${seed}&backgroundColor=0f172a,111827,0b1220&radius=24`;
   }, [testimonial.avatarSeed, testimonial.name]);
+  const initials = useMemo(() => {
+    return testimonial.name
+      .split(" ")
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0]?.toUpperCase())
+      .join("");
+  }, [testimonial.name]);
 
   return (
     <article
@@ -47,13 +56,20 @@ const TestimonialCard = ({ testimonial, index }) => {
             <div className="flex items-start gap-4">
               <div className="relative shrink-0">
                 <div className={`absolute -inset-2 rounded-[1.15rem] bg-gradient-to-br ${theme.glow} blur-lg opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
-                <img
-                  src={avatarUrl}
-                  alt={`${testimonial.name} avatar`}
-                  loading="lazy"
-                  decoding="async"
-                  className="relative h-16 w-16 rounded-[1.15rem] border border-white/10 bg-white/5 object-cover shadow-lg transition-transform duration-500 group-hover:scale-105"
-                />
+                {avatarFailed ? (
+                  <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.15rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.18),rgba(16,185,129,0.18)_36%,rgba(15,23,42,0.95)_100%)] text-sm font-semibold text-white shadow-lg transition-transform duration-500 group-hover:scale-105">
+                    {initials}
+                  </div>
+                ) : (
+                  <img
+                    src={avatarUrl}
+                    alt={`${testimonial.name} avatar`}
+                    loading="lazy"
+                    decoding="async"
+                    onError={() => setAvatarFailed(true)}
+                    className="relative h-16 w-16 rounded-[1.15rem] border border-white/10 bg-white/5 object-cover shadow-lg transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
               </div>
 
               <div className="min-w-0 flex-1">
