@@ -83,15 +83,22 @@ const ProjectDetailsModal = ({ project, onClose }) => {
                     Open live site
                     <ExternalLink className="h-4 w-4" />
                   </a>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/75 transition-colors duration-300 hover:bg-white/10 hover:text-white"
-                  >
-                    <SiGithub className="h-4 w-4" />
-                    View source
-                  </a>
+                  {project.githubUrl ? (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/75 transition-colors duration-300 hover:bg-white/10 hover:text-white"
+                    >
+                      <SiGithub className="h-4 w-4" />
+                      View source
+                    </a>
+                  ) : (
+                    <div className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/45">
+                      <SiGithub className="h-4 w-4" />
+                      Source unavailable
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

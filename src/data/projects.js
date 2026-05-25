@@ -1,107 +1,91 @@
-// projects.js
-
 export const projects = [
   {
     id: 1,
-    title: "CAC Camp Experience Platform",
+    title: "Alternative School",
     description:
-      "A fully responsive web platform showcasing camp activities, memories, and navigation features with custom map integration and animated UI components.",
-    image: "/images/cac-camp.png",
-    category: "Full Stack",
-    technologies: ["React", "Next.js", "Tailwind CSS", "Firebase"],
+      "An innovative online learning platform focused on decentralizing secondary school education and making learning more accessible through technology.",
+    image: "/projects/alternativeschool.png",
+    category: "EdTech Platform",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
+    liveUrl: "https://alternativeschool.live",
     metrics: {
-      users: "2K+",
-      performance: "95 Lighthouse",
-      loadTime: "1.2s"
+      experience: "Modern",
+      performance: "Fast",
+      focus: "Accessible learning"
     },
-    demoUrl: "https://experienceikejiarakeji.com",
-    githubUrl: "https://github.com/yourusername/cac-camp"
+    githubUrl: null
   },
   {
     id: 2,
-    title: "E-Commerce Dashboard",
+    title: "Artistic Axis",
     description:
-      "A modern admin dashboard with order tracking, analytics, and real-time updates for managing products and customer activities.",
-    image: "/images/dashboard.png",
-    category: "Web Apps",
-    technologies: ["React", "TypeScript", "Tailwind CSS"],
+      "A modern and visually engaging portfolio website built for a UI/UX designer, focused on showcasing creativity, branding, and clean user experience.",
+    image: "/projects/artisticaxis.png",
+    category: "Creative Portfolio",
+    technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    liveUrl: "https://artisticaxis.vercel.app",
     metrics: {
-      users: "500+",
-      performance: "92 Lighthouse",
-      loadTime: "1.5s"
+      style: "Bold",
+      motion: "Smooth",
+      polish: "Premium"
     },
-    demoUrl: "https://your-dashboard-demo.com",
-    githubUrl: "https://github.com/yourusername/dashboard"
+    githubUrl: null
   },
   {
     id: 3,
-    title: "Animated UI Component Library",
+    title: "French With Zelie",
     description:
-      "A collection of reusable and highly animated UI components built for scalability and performance in modern web apps.",
-    image: "/images/ui-library.png",
-    category: "UI Components",
-    technologies: ["React", "Framer Motion", "Tailwind CSS"],
+      "An interactive platform designed to help users learn French through engaging lessons, modern learning tools, and immersive educational experiences.",
+    image: "/projects/zellie.png",
+    category: "Learning Platform",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://app.frenchwithzelie.io",
     metrics: {
-      components: "30+",
-      reuseRate: "High",
-      performance: "Optimized"
+      lessons: "Interactive",
+      experience: "Immersive",
+      structure: "Clear"
     },
-    demoUrl: "https://your-ui-library.com",
-    githubUrl: "https://github.com/yourusername/ui-library"
+    githubUrl: null
   },
   {
     id: 4,
-    title: "Portfolio Website (Next.js)",
+    title: "Emkem Tech",
     description:
-      "A high-performance personal portfolio with smooth animations, case studies, and optimized SEO for visibility.",
-    image: "/images/portfolio.png",
-    category: "Web Apps",
-    technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      "A technology-driven educational platform focused on digital learning, training, and skill development.",
+    image: "/projects/emkem-tech.png",
+    category: "Education Technology",
+    technologies: ["Next.js", "Tailwind CSS"],
+    liveUrl: "https://www.emkemtech.com",
     metrics: {
-      performance: "98 Lighthouse",
-      seo: "100%",
-      accessibility: "95%"
+      clarity: "High",
+      layout: "Responsive",
+      polish: "Modern"
     },
-    demoUrl: "https://your-portfolio.com",
-    githubUrl: "https://github.com/yourusername/portfolio"
+    githubUrl: null
   },
   {
     id: 5,
-    title: "Authentication System",
+    title: "Felix Dawodu Portfolio",
     description:
-      "Secure authentication system with sign-up, login, protected routes, and user profile management using modern backend services.",
-    image: "/images/auth.png",
-    category: "Full Stack",
-    technologies: ["React", "Firebase", "Node.js"],
+      "A sleek and modern personal portfolio website showcasing creative work, professional experience, and digital presence.",
+    image: "/projects/felix.png",
+    category: "Personal Brand",
+    technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    liveUrl: "https://felix-dawodu.vercel.app",
     metrics: {
-      security: "JWT/Auth",
-      uptime: "99.9%",
-      users: "1K+"
+      presence: "Strong",
+      motion: "Elegant",
+      feel: "Premium"
     },
-    demoUrl: "https://your-auth-app.com",
-    githubUrl: "https://github.com/yourusername/auth-system"
-  },
-  {
-    id: 6,
-    title: "Interactive Image & Video Slider",
-    description:
-      "A smooth and responsive media slider with swipe gestures, animations, and optimized performance for both mobile and desktop.",
-    image: "/images/slider.png",
-    category: "UI Components",
-    technologies: ["React", "CSS", "JavaScript"],
-    metrics: {
-      fps: "60fps",
-      responsiveness: "Mobile-first",
-      performance: "Optimized"
-    },
-    demoUrl: "https://your-slider-demo.com",
-    githubUrl: "https://github.com/yourusername/slider"
+    githubUrl: null
   }
 ];
 
 export const categories = [
   "All",
-  "Web Apps",
-  "UI Components",
-  "Full Stack"
+  "EdTech Platform",
+  "Creative Portfolio",
+  "Learning Platform",
+  "Education Technology",
+  "Personal Brand"
 ];

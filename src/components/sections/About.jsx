@@ -4,6 +4,7 @@ import { PERSONAL_INFO, STATS } from "../../utils/contestants";
 import FadeIn from "../animations/FadeIn";
 import RadialGradientBackground from "../Backgrounds/RadialGradientBackground"
 import { Code, Server, Database } from "lucide-react";
+import myImage from '../../assets/myy.jpg';
 
 const About = () => {
   const highlights = [
@@ -95,9 +96,9 @@ const About = () => {
           <FadeIn delay={300} duration={800}>
             <div className="relative h-96 rounded-xl overflow-hidden border-2 border-green-800/50 group">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop" 
+                src={myImage} 
                 alt="Profile" 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                className="w-full h-full object-cover object-[50%_20%] group-hover:scale-110 transition-transform duration-500 ease-out"
               />
               {/* Animated Border Glow */}
               <div className="absolute inset-0 border-2 border-green-500/0 group-hover:border-green-500/50 rounded-xl transition-colors duration-500 pointer-events-none" />
