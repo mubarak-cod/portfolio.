@@ -31,9 +31,8 @@ const About = () => {
   ];
 
   const downloadResume = () => {
-    // Add your resume file path here
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // Update with your actual resume path
+    link.href = '/resumefile/ososanyamubarak.pdf.pdf';
     link.download = `${PERSONAL_INFO.name}-Resume.pdf`;
     link.click();
   };

@@ -9,6 +9,14 @@ import FadeIn from "../animations/FadeIn";
 import RadialGradientBackground from "../Backgrounds/RadialGradientBackground";
 
 const Hero = () => {
+  const resumePath = "/resumefile/ososanyamubarak.pdf.pdf";
+  const handleResumeDownload = () => {
+    const link = document.createElement("a");
+    link.href = resumePath;
+    link.download = "Mubarak-Resume.pdf";
+    link.click();
+  };
+
   return (
     <section
       id="home"
@@ -57,7 +65,10 @@ const Hero = () => {
                   Get in Touch
                   <ArrowRight className="h-4 w-4" />
                 </button>
-                <button className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:border-primary/30 hover:bg-white/10">
+                <button
+                  onClick={handleResumeDownload}
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:border-primary/30 hover:bg-white/10"
+                >
                   <Download className="h-4 w-4" />
                   Download Resume
                 </button>

@@ -149,15 +149,21 @@ const ContactSection = () => {
                     );
                   })}
                 </div>
+                {(() => {
+                  const WhatsAppIcon = CONTACT_METHODS[2].icon;
+
+                  return (
                 <a
                   href={CONTACT_METHODS[2].href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm text-emerald-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300/40 hover:bg-emerald-300/15"
                 >
-                  <CONTACT_METHODS[2].icon className="h-4 w-4" />
+                  <WhatsAppIcon className="h-4 w-4" />
                   Chat on WhatsApp
                 </a>
+                  );
+                })()}
               </motion.div>
             </div>
           </motion.aside>
